@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -18,7 +19,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
 
     @Override
-    @Transactional // 开启新事物
+    @Transactional(propagation = Propagation.REQUIRES_NEW) // 开启新事物
     public void reduceBalance(Long userId, Integer price) throws Exception {
         logger.info("[reduceBalance] 当前 XID: {}", RootContext.getXID());
 

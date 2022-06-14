@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * `product-service` 服务的 Feign 客户端
  */
-@FeignClient(name = "product-service")
+@FeignClient(value = "product-service")
 public interface ProductServiceFeignClient {
 
     @PostMapping("/product/reduce-stock")

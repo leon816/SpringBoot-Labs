@@ -1,21 +1,21 @@
 server:
-  port: 8081 # 端口
+  port: 8181 # 端口
 
 spring:
   application:
     name: order-service
 
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/seata_order?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.56.101:3306/seata_order?useSSL=false&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password:
+    password: root
 
   cloud:
     # Nacos 作为注册中心的配置项
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 10.243.66.190:8848
 
 # Seata 配置项，对应 SeataProperties 类
 seata:
@@ -32,4 +32,4 @@ seata:
     nacos:
       cluster: default # 使用的 Seata 分组
       namespace: # Nacos 命名空间
-      serverAddr: localhost # Nacos 服务地址
+      serverAddr: 10.243.66.190 # Nacos 服务地址
